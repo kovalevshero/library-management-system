@@ -14,7 +14,7 @@ A fullstack Library Management System monorepo built using **Clean Architecture*
 
 `	ext
 eigen-fullstack/
-├── eigen-backend/          # NestJS backend API with Prisma ORM & PostgreSQL
+├── backend/          # NestJS backend API with Prisma ORM & PostgreSQL
 │   ├── prisma/             # Prisma schema, migrations, and database seed
 │   ├── src/
 │   │   ├── domain/         # Enterprise business rules & entities (Book, Member, BorrowRecord)
@@ -23,7 +23,7 @@ eigen-fullstack/
 │   │   └── presentation/   # NestJS controllers & DTOs
 │   ├── test/               # Unit, integration, and e2e tests
 │   └── docker-compose.yml  # Docker compose configuration for API and PostgreSQL
-├── eigen-frontend/         # React SPA built with Ant Design v5 & Clean Architecture
+├── frontend/         # React SPA built with Ant Design v5 & Clean Architecture
 │   ├── src/
 │   │   ├── domain/         # Domain entities and repository contracts
 │   │   ├── application/    # Application use cases
@@ -78,7 +78,7 @@ pnpm install
 
 ### 2. Start Backend (Docker)
 `ash
-cd eigen-backend
+cd backend
 docker compose up -d --build
 `
 - API Server: http://localhost:3000
@@ -86,7 +86,7 @@ docker compose up -d --build
 
 ### 3. Start Frontend
 `ash
-cd ../eigen-frontend
+cd ../frontend
 pnpm dev
 `
 - Frontend UI: http://localhost:5173
@@ -97,12 +97,12 @@ pnpm dev
 
 ### Frontend Tests
 `ash
-pnpm --filter eigen-frontend test
+pnpm --filter frontend test
 `
 
 ### Backend Tests
 `ash
-pnpm --filter eigen-backend test
+pnpm --filter backend test
 `
 
 ---

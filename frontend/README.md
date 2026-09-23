@@ -74,9 +74,9 @@ From the monorepo root:
 pnpm install
 ```
 
-Or from the `eigen-frontend` directory:
+Or from the `frontend` directory:
 ```bash
-cd "eigen-frontend"
+cd "frontend"
 pnpm install
 ```
 
@@ -85,11 +85,11 @@ pnpm install
 Make sure the NestJS backend is running on `http://localhost:3000`:
 ```bash
 # Terminal 1: Start backend
-cd ../eigen-backend
+cd ../backend
 pnpm start:dev
 
 # Terminal 2: Start frontend
-cd ../eigen-frontend
+cd ../frontend
 pnpm dev
 ```
 

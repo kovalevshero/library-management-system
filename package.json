@@ -1,10 +1,10 @@
 {
-  "name": "eigen-fullstack",
+  "name": "library-management-system",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev:backend": "pnpm --filter eigen-backend start:dev",
-    "dev:frontend": "pnpm --filter eigen-frontend dev",
+    "dev:backend": "pnpm --filter backend start:dev",
+    "dev:frontend": "pnpm --filter frontend dev",
     "build": "pnpm -r build",
     "test": "pnpm -r test"
   }

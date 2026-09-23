@@ -1,6 +1,6 @@
 ﻿packages:
-  - 'eigen-backend'
-  - 'eigen-frontend'
+  - 'backend'
+  - 'frontend'
 
 allowBuilds:
   '@nestjs/core': true
