@@ -1,0 +1,55 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum BorrowStatus {
+  BORROWED
+  RETURNED
+}
+
+model Book {
+  code          String         @id
+  title         String
+  author        String
+  stock         Int            @default(1)
+  borrowRecords BorrowRecord[]
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+
+  @@map("books")
+}
+
+model Member {
+  code          String         @id
+  name          String
+  penaltyUntil  DateTime?
+  borrowRecords BorrowRecord[]
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+
+  @@map("members")
+}
+
+model BorrowRecord {
+  id         String       @id @default(uuid())
+  memberCode String
+  bookCode   String
+  borrowedAt DateTime     @default(now())
+  returnedAt DateTime?
+  status     BorrowStatus @default(BORROWED)
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @default(now()) @updatedAt
+
+  member Member @relation(fields: [memberCode], references: [code], onDelete: Cascade)
+  book   Book   @relation(fields: [bookCode], references: [code], onDelete: Cascade)
+
+  @@index([memberCode])
+  @@index([bookCode])
+  @@index([status])
+  @@map("borrow_records")
+}
