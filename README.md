@@ -1,4 +1,4 @@
-﻿# Library Management System
+# Library Management System
 
 A fullstack Library Management System monorepo built using **Clean Architecture** and **Domain-Driven Design (DDD)** principles.
 
@@ -12,9 +12,9 @@ A fullstack Library Management System monorepo built using **Clean Architecture*
 
 ## 📁 Monorepo Structure
 
-`	ext
-eigen-fullstack/
-├── backend/          # NestJS backend API with Prisma ORM & PostgreSQL
+```text
+library-management-system/
+├── backend/                # NestJS backend API with Prisma ORM & PostgreSQL
 │   ├── prisma/             # Prisma schema, migrations, and database seed
 │   ├── src/
 │   │   ├── domain/         # Enterprise business rules & entities (Book, Member, BorrowRecord)
@@ -23,7 +23,7 @@ eigen-fullstack/
 │   │   └── presentation/   # NestJS controllers & DTOs
 │   ├── test/               # Unit, integration, and e2e tests
 │   └── docker-compose.yml  # Docker compose configuration for API and PostgreSQL
-├── frontend/         # React SPA built with Ant Design v5 & Clean Architecture
+├── frontend/               # React SPA built with Ant Design v5 & Clean Architecture
 │   ├── src/
 │   │   ├── domain/         # Domain entities and repository contracts
 │   │   ├── application/    # Application use cases
@@ -33,7 +33,7 @@ eigen-fullstack/
 ├── package.json            # Root workspace scripts
 ├── pnpm-workspace.yaml     # pnpm workspace definition
 └── README.md
-`
+```
 
 ---
 
@@ -57,8 +57,8 @@ eigen-fullstack/
    - Return modal dynamically filters books to only show those currently borrowed by the selected member.
 
 5. **Transaction Activity Logs**:
-   - Persistent transaction logs stored in PostgreSQL and retrieved via GET /api/borrow/history.
-   - Scroll-based infinite loading and manual  Load More pagination in the frontend Recent Activity feed.
+   - Persistent transaction logs stored in PostgreSQL and retrieved via `GET /api/borrow/history`.
+   - Scroll-based infinite loading and manual "Load More" pagination in the frontend Recent Activity feed.
 
 ---
 
@@ -70,40 +70,40 @@ eigen-fullstack/
 - [Docker](https://www.docker.com/) & Docker Compose
 
 ### 1. Clone & Install Dependencies
-`ash
+```bash
 git clone https://github.com/kovalevshero/library-management-system.git
 cd library-management-system
 pnpm install
-`
+```
 
 ### 2. Start Backend (Docker)
-`ash
+```bash
 cd backend
 docker compose up -d --build
-`
-- API Server: http://localhost:3000
-- Swagger Documentation: http://localhost:3000/api/docs
+```
+- API Server: `http://localhost:3000`
+- Swagger Documentation: `http://localhost:3000/api/docs`
 
 ### 3. Start Frontend
-`ash
+```bash
 cd ../frontend
 pnpm dev
-`
-- Frontend UI: http://localhost:5173
+```
+- Frontend UI: `http://localhost:5173`
 
 ---
 
 ## 🧪 Testing
 
 ### Frontend Tests
-`ash
+```bash
 pnpm --filter frontend test
-`
+```
 
 ### Backend Tests
-`ash
+```bash
 pnpm --filter backend test
-`
+```
 
 ---
 
