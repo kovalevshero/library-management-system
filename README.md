@@ -81,6 +81,13 @@ pnpm install
 cd backend
 docker compose up -d --build
 ```
+> **Note**: Perintah ini sudah **otomatis mencakup**:
+> 1. Download dan instalasi PostgreSQL 16 ke dalam container Docker (`library_postgres`).
+> 2. Healthcheck database hingga siap menerima koneksi.
+> 3. **Migrasi skema database** secara otomatis via Prisma (`pnpm prisma db push`).
+> 4. **Seeding data awal** (`prisma/seed.ts`: daftar buku & member awal).
+> 5. Menjalankan NestJS API server (`library_api`).
+
 - API Server: `http://localhost:3000`
 - Swagger Documentation: `http://localhost:3000/api/docs`
 
